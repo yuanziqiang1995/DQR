@@ -1,0 +1,21 @@
+package_path	role	original_file
+data/scorer/distillation_data.jsonl.gz	DQR SFT 蒸馏数据（含负样本与教师推理）	distillation_data_r3-2-0305.jsonl
+data/scorer/rl_data.parquet	DQR GRPO 训练数据	rl_data_0306-1.parquet
+data/finqa_convfinqa/unselected.json.gz	FinQA+ConvFinQA 未筛选训练数据	finqa-convfinqa-g1-g2-1102.json
+data/finqa_convfinqa/dqr_sft_rl.json.gz	FinQA+ConvFinQA 的 DQR SFT+RL 五维评分	finqa-judge-results-main-rl-0505.json
+data/finqa_convfinqa/dqr_sft.json.gz	FinQA+ConvFinQA 的 DQR SFT 五维评分	finqa-judge-results-sft412.json
+data/finqa_convfinqa/deepseek.json.gz	FinQA+ConvFinQA 的 DeepSeek 评分	judgebydeepseek.json
+data/finqa_convfinqa/gemini.json.gz	FinQA+ConvFinQA 的 Gemini 评分	finqa-judge-results-gemini_qwen8b.json
+data/finqa_convfinqa/qwen3_8b.json.gz	FinQA+ConvFinQA 的 Qwen3-8B 评分	finqa-judge-results-judgebyqwen3-8b.json
+data/finqa_convfinqa/ds2.json.gz	FinQA+ConvFinQA 经 DS2 保留 90% 的数据	ds2_90p.json
+data/multihiertt/unselected.json.gz	MultiHiertt 未筛选训练数据	train_mult.json
+data/multihiertt/dqr_sft_rl.json.gz	MultiHiertt 的 DQR SFT+RL 五维评分	mutl-judge-results-rl.json
+data/multihiertt/dqr_sft.json.gz	MultiHiertt 的 DQR SFT 五维评分	mutl-judge-results-sft.json
+data/multihiertt/deepseek.json.gz	MultiHiertt 的 DeepSeek 评分	mult-judgebydeepspeek.json
+data/multihiertt/gemini.json.gz	MultiHiertt 的 Gemini 评分（用于随机基线数据源）	mult-judgebygeimini.json
+data/multihiertt/qwen3_8b.json.gz	MultiHiertt 的 Qwen3-8B 评分	mutl-judge-results-qwen8b.json
+data/multihiertt/ds2.json.gz	MultiHiertt 经 DS2 保留 90% 的数据	ds2_90p_mult.json
+data/test/finqa.json.gz	FinQA 完整测试集（1147 条）	finqa_test_79.json
+data/test/convfinqa.json.gz	ConvFinQA 开发集，论文作为测试集（1490 条）	convfinqa_dev5.json
+data/test/multihiertt.json.gz	MultiHiertt 开发集，论文作为测试集（1044 条）	dev.json
+data/test/gsm8k.jsonl.gz	GSM8K 官方测试集（1319 条）	gsm8k-test.jsonl

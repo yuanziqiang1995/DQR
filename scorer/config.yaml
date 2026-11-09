@@ -1,0 +1,58 @@
+paths:
+  base_model: Qwen/Qwen3-8B
+  logging_dir: outputs/logs
+
+prepare:
+  input_file: ../data/scorer/distillation_data.jsonl
+  output_file: ../data/scorer/sft_prepared.json
+
+sft:
+  base_model: Qwen/Qwen3-8B
+  data_path: ../data/scorer/sft_prepared.json
+  output_dir: outputs/scorer_sft
+  batch_size: 32
+  micro_batch_size: 1
+  num_epochs: 3
+  learning_rate: 1.0e-6
+  cutoff_len: 5120
+  warmup_steps: 100
+  save_steps: 1000
+  eval_steps: 500
+  val_ratio: 0.05
+  seed: 42
+  deepspeed: configs_ds/ds_config_stage2.json
+  resume_from_checkpoint: null
+  logging_dir: outputs/logs
+
+rl:
+  model_path: outputs/scorer_sft
+  tokenizer_path: Qwen/Qwen3-8B
+  data_path: ../data/scorer/rl_data.parquet
+  learning_rate: 5.0e-7
+  num_generations: 8
+  max_prompt_length: 6144
+  max_completion_length: 2048
+  beta: 0.2
+  epsilon: 0.05
+  per_device_train_batch_size: 8
+  gradient_accumulation_steps: 4
+  num_train_epochs: 3
+  save_steps: 500
+  warmup_steps: 100
+  eval_steps: 500
+  adam_beta1: 0.9
+  adam_beta2: 0.999
+  weight_decay: 0.01
+  deepspeed: configs_ds/ds_config_stage3.json
+  output_dir: outputs/scorer_rl_checkpoints
+  resume_from_checkpoint: null
+  final_save_dir: outputs/scorer_rl
+  reward_weights: [0.2, 0.2, 0.2, 0.2, 0.2]
+  logging_dir: outputs/logs
+
+score:
+  model_path: outputs/scorer_rl
+  max_new_tokens: 2048
+  batch_size: 4
+  percent: 90
+  seed: 42

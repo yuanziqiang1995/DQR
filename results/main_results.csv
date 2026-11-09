@@ -1,0 +1,9 @@
+method,finqa_em_percent,convfinqa_em_percent,multihiertt_em_percent,gsm8k_em_percent
+Unselected Data,75.41,83.95,40.61,72.55
+Random Selection,74.36,78.99,41.38,76.27
+DeepSeek-V3.2,75.94,84.29,42.34,74.15
+Gemini-3.1-Pro,75.32,83.29,41.38,72.70
+Qwen3-8B,75.41,83.89,40.32,74.60
+DS2,75.24,84.49,40.90,74.30
+DQR (SFT),75.59,83.42,40.71,74.82
+DQR (SFT+RL),76.67,84.36,41.66,76.42
