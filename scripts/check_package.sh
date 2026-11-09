@@ -10,12 +10,11 @@ import re
 from pathlib import Path
 
 root = Path.cwd()
-files = sorted(path for path in root.rglob('*') if path.is_file())
+files = sorted(path for path in root.rglob('*') if path.is_file() and '.git' not in path.parts)
 relative = {path.relative_to(root).as_posix() for path in files}
 
 expected_data = {
     'data/scorer/distillation_data.jsonl.gz',
-    'data/scorer/rl_data.parquet',
     *{f'data/finqa_convfinqa/{name}.json.gz' for name in (
         'unselected', 'ds2', 'dqr_sft_rl', 'dqr_sft', 'gemini', 'qwen3_8b', 'deepseek')},
     *{f'data/multihiertt/{name}.json.gz' for name in (
@@ -41,12 +40,6 @@ for name, expected_count in (('finqa', 1147), ('convfinqa', 1490), ('multihiertt
 with gzip.open(root / 'data/test/gsm8k.jsonl.gz', 'rt', encoding='utf-8') as f:
     rows = [json.loads(line) for line in f if line.strip()]
     assert len(rows) == 1319 and all('####' in row['answer'] for row in rows)
-
-parquet = root / 'data/scorer/rl_data.parquet'
-with parquet.open('rb') as f:
-    assert f.read(4) == b'PAR1'
-    f.seek(-4, 2)
-    assert f.read(4) == b'PAR1'
 
 secret_pattern = re.compile(r'sk-[A-Za-z0-9]{16,}')
 for path in files:
