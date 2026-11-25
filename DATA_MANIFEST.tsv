@@ -1,0 +1,8 @@
+package_path	role	original_file
+data/scorer/distillation_data.jsonl.gz	DQR SFT 蒸馏数据（含负样本与教师推理）	distillation_data_r3-2-0305.jsonl
+data/finqa_convfinqa/unselected.json.gz	FinQA+ConvFinQA 未筛选训练数据	finqa-convfinqa-g1-g2-1102.json
+data/multihiertt/unselected.json.gz	MultiHiertt 未筛选训练数据	train_mult.json
+data/test/finqa.json.gz	FinQA 完整测试集（1147 条）	finqa_test_79.json
+data/test/convfinqa.json.gz	ConvFinQA 开发集，论文作为测试集（1490 条）	convfinqa_dev5.json
+data/test/multihiertt.json.gz	MultiHiertt 开发集，论文作为测试集（1044 条）	dev.json
+data/test/gsm8k.jsonl.gz	GSM8K 官方测试集（1319 条）	gsm8k-test.jsonl
